@@ -1,0 +1,34 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    vector<int>A = {2,10,1,3,5};
+
+    int n=A.size(), i, min_ind, swapcount=0;
+
+    for(i=0; i<n-1; i++)
+    {
+        int min_ind=i;
+
+        for(int j=i+1; j<n; j++)
+        {
+            if(A[min_ind]>A[j])
+                min_ind=j;
+        }
+
+        if(A[i]!=A[min_ind])
+        {
+            swap(A[i],A[min_ind]);
+            swapcount++;
+        }
+    }
+
+    for(i=0; i<n; i++)
+    {
+        cout<<A[i]<<" ";
+    }
+
+    cout<<endl;
+    cout<<swapcount<<" ";
+}
