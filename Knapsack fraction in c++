@@ -4,31 +4,22 @@ int main() {
     int items,capacity;
     cin >> items >> capacity;
 vector<pair<int,int>> item(items);
-
 for(int i=0;i<items;i++) {
-    cin >> item[i].first >> item[i].second;
-}
+    cin >> item[i].first >> item[i].second;}
 double totalweight=0,profit=0;
 sort(item.begin(), item.end(), [](auto a, auto b) {
     return (double)a.second / a.first >
            (double)b.second / b.first;
 });
-
 for(int i=0;i<items;i++) {
     int weight=item[i].first;
     int value=item[i].second;
 if(totalweight+weight<=capacity) {
     totalweight=totalweight+weight;
-    profit=profit+value;
-
-}
+    profit=profit+value;}
 else{
     double remainingweight=capacity-totalweight;
     profit=profit+remainingweight*
     (double)value/weight;
     break;
-}
-}
-
-cout<<fixed<<setprecision(2)<<profit;
-}
+}}cout<<fixed<<setprecision(2)<<profit;}
